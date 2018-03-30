@@ -14,7 +14,7 @@ if [ $EUID != 0 ]; then
 fi
 
 echo "Confirming Xcode installation..."
-xcode-select --install
+#xcode-select --install
 
 # Check for Homebrew, install if we don't have it
 if test ! $(which brew); then
