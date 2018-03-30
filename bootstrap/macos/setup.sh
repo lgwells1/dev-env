@@ -5,23 +5,13 @@
 # Based on gist: https://gist.github.com/codeinthehole/26b37efa67041e1307db
 #
 
-# Confirm sudo permissions
-function ask_for_sudo() {
-    info "Prompting for sudo password..."
-    if sudo --validate; then
-        # Keep-alive
-        while true; do sudo --non-interactive true; \
-            sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-        success "Sudo credentials updated."
-    else
-        error "Obtaining sudo credentials failed."
-        exit 1
-}
-
 echo "Starting bootstrapping..."
 
 echo "Confirming sudo permissions..."
-ask_for_sudo
+if [ $EUID != 0 ]; then
+    sudo "$0" "$@"
+    exit $?
+fi
 
 echo "Confirming Xcode installation..."
 xcode-select --install
