@@ -7,13 +7,13 @@
 
 echo "Starting bootstrapping..."
 
-echo "Confirming sudo permissions..."
-if [ $EUID != 0 ]; then
-    sudo "$0" "$@"
-    exit $?
-fi
+#echo "Confirming sudo permissions..."
+#if [ $EUID != 0 ]; then
+#    sudo "$0" "$@"
+#    exit $?
+#fi
 
-echo "Confirming Xcode installation..."
+echo "Confirming Xcode Command Line Utility installation..."
 #xcode-select --install
 
 # Check for Homebrew, install if we don't have it
