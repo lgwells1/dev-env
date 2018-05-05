@@ -9,6 +9,7 @@ if ! [ $(xcode-select -p) ]; then
     echo "Installing XCode Command Line Tools..."
     echo "Please wait until XCode Command Line Tools are installed before continuing"
     xcode-select --install
+    read -p "Press any key to continue..." -n 1 answer
 else
     echo "XCode Command Line Tools are already installed..."
 fi
@@ -22,6 +23,7 @@ if ! [ $(which brew) ]; then
     ruby -e "$(curl -fsSL ${brewInstallUrl})"
     brew update
     brew upgrade
+    read -p "Press any key to continue..." -n 1 answer
 
     echo "Homebrew finished installing!"
 else
@@ -30,18 +32,9 @@ fi
 
 sleep 1
 
-if ! [ $(ls /Applications/ | grep iTerm.app) ]; then
-    echo "Installing iTerm2..."
-    brew cask install iterm2
-    echo "iTerm2 finished installing!"
-else
-    echo "iTerm2 is already installed..."
-fi
-
-sleep 1
-
-
 #Install Homebrew Cask Applications
+brew cask install iterm2
+
 brew cask install dotnet-sdk
 brew cask install java8
 
