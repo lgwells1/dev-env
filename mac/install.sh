@@ -125,6 +125,7 @@ javaParentPath=/Library/Java/JavaVirtualMachines/
 cd $javaParentPath
 java8Dir=`ls -d *jdk1.8.*/`
 #java10Dir=`ls -d *jdk1.10.*/`
+cd ~
 java8Path="${javaParentPath}${java8Dir}Contents/Home/"
 #java10Path="${javaParentPath}${java10Dir}Contents/Home/"
 
