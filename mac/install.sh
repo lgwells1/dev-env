@@ -166,3 +166,27 @@ echo 'export GRADLE_HOME=/usr/local/opt/gradle/libexec' >> ~/.bash_profile
 echo 'export MAVEN_HOME=/usr/local/opt/maven/libexec' >> ~/.bash_profile
 echo "" >> ~/.bash_profile
 
+#Configure Dock Input String Setup
+str1="<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/"
+str2="</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+
+#Remove all current Dock Applications
+defaults delete com.apple.dock persistent-apps
+defaults delete com.apple.dock persistent-others
+
+#Add specified Applications to Dock
+app=Launchpad.app && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+app="Microsoft Outlook.app" && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+app="Microsoft Excel.app" && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+app="Google Chrome.app" && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+app="Firefox Developer Edition.app" && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+app=iTerm.app && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+app="SQL Operations Studio.app" && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+app="Visual Studio Code.app" && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+app="IntelliJ IDEA CE.app" && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+app=Eclipse.app && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+app="System Preferences.app" && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+app="App Store.app" && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
+
+#Refresh Dock
+killall Dock
