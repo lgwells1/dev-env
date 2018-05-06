@@ -66,7 +66,7 @@ sleep 1
 
 #Install Homebrew Cask Applications
 blue_color
-echo "Installing Homebrew/Caskroom Applications for a Default Development Environment..."
+echo "Installing Homebrew/Caskroom Applications for Dev Environment..."
 normal_color
 echo ""
 
