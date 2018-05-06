@@ -37,7 +37,11 @@ if ! [ $(xcode-select -p) ]; then
     echo "Please wait until XCode Command Line Tools are installed before continuing"
     xcode-select --install
     normal_color
-    read -p "After XCode Command Line Tools have finished installing. Press any key to continue..." -n 1 answer
+    echo ""
+    echo "Wait till XCode Command Line Tools have finished installing before continuing."
+    echo ""
+    blue_color
+    read -p "Press any key to continue..." -n 1 answer
 else
     green_color
     echo "XCode Command Line Tools are already installed..."
