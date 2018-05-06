@@ -4,10 +4,10 @@ RED_COLOR="\033[0;31m"
 GREEN_COLOR="\033[0;32m"
 BLUE_COLOR="\033[0;34m"
 
-function normal_color() { echo -e "${NORMAL_COLOR}\c" }
-function red_color() { echo -e "${RED_COLOR}\c" }
-function green_color() { echo -e "${GREEN_COLOR}\c" }
-function blue_color() { echo -e "${BLUE_COLOR}\c" }
+function normal_color() { echo -e "${NORMAL_COLOR}\c" ; }
+function red_color() { echo -e "${RED_COLOR}\c" ; }
+function green_color() { echo -e "${GREEN_COLOR}\c" ; }
+function blue_color() { echo -e "${BLUE_COLOR}\c" ; }
 
 set -e
 trap on_sigterm SIGKILL SIGTERM
