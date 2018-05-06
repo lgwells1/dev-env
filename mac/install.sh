@@ -31,7 +31,7 @@ echo "                         | |    "
 echo "                         |_|    "
 echo ""
 
-if ! [ $(xcode-select -p) ]; then
+if ! [ $(xcode-select -p > /dev/null) ]; then
     blue_color
     echo "Installing XCode Command Line Tools..."
     echo "Please wait until XCode Command Line Tools are installed before continuing"
