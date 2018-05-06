@@ -188,5 +188,9 @@ app=Eclipse.app && defaults write com.apple.dock persistent-apps -array-add "${s
 app="System Preferences.app" && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
 app="App Store.app" && defaults write com.apple.dock persistent-apps -array-add "${str1}${app}${str2}"
 
+#Autohide Dock without Animation
+defaults write com.apple.dock autohide -bool TRUE
+defaults write com.apple.dock autohide-time-modifier -int 0
+
 #Refresh Dock
 killall Dock
