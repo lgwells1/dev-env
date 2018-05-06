@@ -79,6 +79,7 @@ brew tap caskroom/versions
 brew update
 brew upgrade
 brew cask install iterm2
+brew cask install powershell
 
 brew cask install dotnet
 brew cask install dotnet-sdk
@@ -124,23 +125,44 @@ brew cask install adobe-acrobat-reader
 brew cleanup
 brew cask cleanup
 
+#Setup Custom Bash Profile for macOS High Sierra
+echo "" >> ~/.bash_profile
+echo "#Custom Bash Profile for macOS High Sierra" >> ~/.bash_profile
+echo 'export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "' >> ~/.bash_profile
+echo 'export CLICOLOR=1' >> ~/.bash_profile
+echo 'export LSCOLORS=ExFxBxDxCxegedabagacad' >> ~/.bash_profile
+echo "alias la='ls -al'" >> ~/.bash_profile
+echo "alias powershell='pwsh" >> ~/.bash_profile
+echo "alias upgrade='brew update && brew upgrade -y && brew cask upgrade && brew cleanup && brew cask cleanup'" >> ~/.bash_profile
+
+#Setup Java Environment Settings
+echo 'if which jenv > /dev/null; then eval "$(jenv init -)"; fi' >> ~/.bash_profile
 javaParentPath=/Library/Java/JavaVirtualMachines/
 cd $javaParentPath
+
+#Find specific Java Home Directories
+#java6Dir=`ls -d *jdk1.6.*/`
+#java7Dir=`ls -d *jdk1.7.*/`
 java8Dir=`ls -d *jdk1.8.*/`
-java10Dir=`ls -d *jdk1.10.*/`
+#java9Dir=`ls -d *jdk-9.*/`
+java10Dir=`ls -d *jdk-10.*/`
+
 cd ~
 java8Path="${javaParentPath}${java8Dir}Contents/Home/"
 java10Path="${javaParentPath}${java10Dir}Contents/Home/"
 
+#Add Java Homes to Java Environments
 jenv init
-jenv add $java8Path
-jenv add $java10Path
+#jenv add $java8Path
+#jenv add $java10Path
 
-echo "" >> ~/.bash_profile
-echo 'if which jenv > /dev/null; then eval "$(jenv init -)"; fi' >> ~/.bash_profile
-echo 'export JAVA_HOME="${java8Path}"' >> ~/.bash_profile
-echo 'export JDK_HOME="${java8Path}"' >> ~/.bash_profile
-echo 'export JAVA18_HOME="${java8Path}"' >> ~/.bash_profile
+#Add to Environment Variables to Bash Profile
+echo "export JAVA_HOME=${java8Path}" >> ~/.bash_profile
+echo "export JDK_HOME=${java8Path}" >> ~/.bash_profile
+echo "export JAVA18_HOME=${java8Path}" >> ~/.bash_profile
+echo "export JAVA10_HOME=${java10Path}" >> ~/.bash_profile
 echo 'export ANT_HOME=/usr/local/opt/ant/libexec' >> ~/.bash_profile
 echo 'export GRADLE_HOME=/usr/local/opt/gradle/libexec' >> ~/.bash_profile
 echo 'export MAVEN_HOME=/usr/local/opt/maven/libexec' >> ~/.bash_profile
+echo "" >> ~/.bash_profile
+
