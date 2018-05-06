@@ -122,6 +122,7 @@ brew cask install visual-studio-code
 #brew cask install adobe-acrobat-reader
 
 javaParentPath=/Library/Java/JavaVirtualMachines/
+cd $javaParentPath
 java8Dir=`ls -d *jdk1.8.*/`
 #java10Dir=`ls -d *jdk1.10.*/`
 java8Path="${javaParentPath}${java8Dir}Contents/Home/"
