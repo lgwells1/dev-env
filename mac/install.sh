@@ -75,26 +75,30 @@ brew update
 brew upgrade
 brew cask install iterm2
 
-brew cask install dotnet-sdk
+#brew cask install dotnet
+#brew cask install dotnet-sdk
 brew cask install java8
-brew cask install java9
-brew cask install java
+#brew cask install java9
+#brew cask install java
+brew install jenv
+brew install node
+brew install python
 
 brew install git
-brew cask install perforce
+#brew cask install perforce
 brew install ant
 brew install maven
 brew install gradle
 #brew cask install docker
 #brew cask install virtualbox
-brew install terraform
+#brew install terraform
 
 brew cask install google-chrome
-brew cask install firefox-developer-edition
+#brew cask install firefox-developer-edition
 
 brew cask install visual-studio-code
-brew cask install sublime-text
-brew cask install atom
+#brew cask install sublime-text
+#brew cask install atom
 
 #brew cask install sql-operations-studio
 #brew cask install mysqlworkbench
@@ -103,12 +107,28 @@ brew cask install atom
 #brew cask install intellij-idea-ce
 #brew cask install eclipse-ide
 
-brew install awscli
-brew install azure-cli
-brew cask install google-cloud-sdk
+#brew install awscli
+#brew install azure-cli
+#brew cask install google-cloud-sdk
 
-brew cask install postman
-brew cask install macs-fan-control
-brew cask install cinch
+#brew cask install postman
+#brew cask install macs-fan-control
+#brew cask install cinch
 #brew cask install microsoft-office
 #brew cask install adobe-acrobat-reader
+
+javaParentPath=/Library/Java/JavaVirtualMachines/
+java8Dir=`ls -d *jdk1.8.*/`
+#java10Dir=`ls -d *jdk1.10.*/`
+java8Path="${javaParentPath}${java8Dir}Contents/Home/"
+#java10Path="${javaParentPath}${java10Dir}Contents/Home/"
+
+jenv init
+jenv add $java8Path
+#jenv add $java10Path
+
+echo "" >> ~/.bash_profile
+echo 'if which jenv > /dev/null; then eval "$(jenv init -)"; fi' >> ~/.bash_profile
+echo 'export JAVA_HOME="${java8Path}"' >> ~/.bash_profile
+echo 'export JDK_HOME="${java8Path}"' >> ~/.bash_profile
+echo 'export JAVA18_HOME="${java8Path}"' >> ~/.bash_profile
