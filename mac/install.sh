@@ -77,6 +77,7 @@ brew cask install iterm2
 
 brew cask install dotnet-sdk
 brew cask install java8
+brew cask install java9
 brew cask install java
 
 brew install git
