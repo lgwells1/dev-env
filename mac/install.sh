@@ -88,6 +88,7 @@ brew cask install java
 brew install jenv
 brew install node
 brew install python
+brew cleanup
 
 brew install git
 brew cask install perforce
@@ -97,6 +98,7 @@ brew install gradle
 #brew cask install docker
 #brew cask install virtualbox
 brew install terraform
+brew cleanup
 
 brew cask install google-chrome
 brew cask install firefox-developer-edition
@@ -104,6 +106,7 @@ brew cask install firefox-developer-edition
 brew cask install visual-studio-code
 brew cask install sublime-text
 brew cask install atom
+brew cleanup
 
 brew cask install sql-operations-studio
 brew cask install mysqlworkbench
@@ -111,16 +114,19 @@ brew cask install dbeaver-community
 
 brew cask install intellij-idea-ce
 brew cask install eclipse-ide
+brew cleanup
 
 brew install awscli
 brew install azure-cli
 brew cask install google-cloud-sdk
+brew cleanup
 
 brew cask install postman
 brew cask install macs-fan-control
 brew cask install cinch
 brew cask install microsoft-office
 brew cask install adobe-acrobat-reader
+brew cleanup
 
 javaParentPath=/Library/Java/JavaVirtualMachines/
 cd $javaParentPath
@@ -142,4 +148,3 @@ echo 'export JAVA18_HOME="${java8Path}"' >> ~/.bash_profile
 echo 'export ANT_HOME=/usr/local/opt/ant/libexec' >> ~/.bash_profile
 echo 'export GRADLE_HOME=/usr/local/opt/gradle/libexec' >> ~/.bash_profile
 echo 'export MAVEN_HOME=/usr/local/opt/maven/libexec' >> ~/.bash_profile
-
