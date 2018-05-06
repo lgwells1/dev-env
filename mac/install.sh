@@ -33,12 +33,13 @@ echo ""
 
 if ! [ $(xcode-select -p > /dev/null) ]; then
     blue_color
+    echo ""
     echo "Installing XCode Command Line Tools..."
     echo "Please wait until XCode Command Line Tools are installed before continuing"
     xcode-select --install
-    normal_color
+    red_color
     echo ""
-    echo "Wait till XCode Command Line Tools have finished installing before continuing."
+    echo "Wait till XCode Command Line Tools have finished installing before continuing!"
     echo ""
     blue_color
     read -p "Press any key to continue..." -n 1 answer
